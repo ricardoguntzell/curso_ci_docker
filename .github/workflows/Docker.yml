@@ -19,3 +19,12 @@ jobs:
       with:
         username: guntzbr
         password: ${{ secrets.PASS_DOCKER_HUB }}
+    
+    - name: Build and push Docker images00   
+   
+      uses: docker/build-push-action@v4.1.1
+      with:
+        context: .
+        file: ./Dockerfile
+        push: true
+        tags: guntzbr/go_ci:${{ github.ref_name }}
